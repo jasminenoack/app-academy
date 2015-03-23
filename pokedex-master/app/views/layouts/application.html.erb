@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokedex</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+
+<script type="text/template" id="pokemon-detail-template">
+  <ul class="detail <%%= pokemon.id %>">
+    <li><img src="<%%= pokemon.escape('image_url') %>"></li>
+
+    <%% for (var prop in pokemon.attributes) { %>
+      <%% if (pokemon.attributes.hasOwnProperty(prop) && prop !== "image_url") { %>
+        <li><%%= prop %>: <%%= pokemon.escape(prop) %></li>
+      <%% } %>
+    <%% } %>
+
+  </ul>
+</script>
+
+
+<script type="text/template" id="toy-detail-template">
+  <ul class="detail <%%= toy.id %>">
+    <li><img src="<%%= toy.escape('image_url') %>"></li>
+
+    <%% for (var prop in toy.attributes) { %>
+      <%% if (toy.attributes.hasOwnProperty(prop) && prop !== "image_url") { %>
+        <li><%%= prop %>: <%%= toy.escape(prop) %></li>
+      <%% } %>
+    <%% } %>
+
+
+    <li>
+      <select data-toy-id="<%%= toy.id %>">
+
+        <%% Pokedex.rootView.pokes.each( function (pokemon) { %>
+          <option value="<%%= pokemon.id %>" "<%% if (pokemon.id === toy.get("pokemon_id")) { %> selected <%% } %>">
+            <%%= pokemon.get("name") %>
+          </option>
+        <%% }) %>
+
+      </select>
+    </li>
+
+  </ul>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Corgi Thumbs mum</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/cssreset/cssreset-min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./thumbnails.js"></script>
+    <link href="./thumbnails.css" rel="stylesheet" type="text/css">
+  </head>
+
+<body>
+  <figure class="imageviewer">
+    <section class="bigimages">
+      <ul>
+        <li class="active"><img src="http://placecorgi.com/260/180"></li>
+        <li><img src="http://placecorgi.com/260/179"></li>
+        <li><img src="http://placecorgi.com/260/178"></li>
+        <li><img src="http://placecorgi.com/260/177"></li>
+        <li><img src="http://placecorgi.com/260/176"></li>
+        <li><img src="http://placecorgi.com/260/175"></li>
+        <li><img src="http://placecorgi.com/260/174"></li>
+        <li><img src="http://placecorgi.com/260/173"></li>
+        <li><img src="http://placecorgi.com/260/172"></li>
+        <li><img src="http://placecorgi.com/260/171"></li>
+        <li><img src="http://placecorgi.com/260/170"></li>
+        <li><img src="http://placecorgi.com/260/169"></li>
+    </section>
+
+    <section class="thumbnail-nav">
+      <button>&lt;</button>
+      <ul class="thumbnails">
+        <li><img src="http://placecorgi.com/260/180"></li>
+        <li><img src="http://placecorgi.com/260/179"></li>
+        <li><img src="http://placecorgi.com/260/178"></li>
+        <li><img src="http://placecorgi.com/260/177"></li>
+        <li><img src="http://placecorgi.com/260/176"></li>
+        <li><img src="http://placecorgi.com/260/175"></li>
+        <li><img src="http://placecorgi.com/260/174"></li>
+        <li><img src="http://placecorgi.com/260/173"></li>
+        <li><img src="http://placecorgi.com/260/172"></li>
+        <li><img src="http://placecorgi.com/260/171"></li>
+        <li><img src="http://placecorgi.com/260/170"></li>
+        <li><img src="http://placecorgi.com/260/169"></li>
+      </ul>
+      <button>&gt;</button>
+    </section>
+  </figure>
+  <script>
+    $(function () {
+      $(".imageviewer").Thumbnails();
+    });
+  </script>
+</body>
+</html>
