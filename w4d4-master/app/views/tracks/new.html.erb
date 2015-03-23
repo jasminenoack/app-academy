@@ -1,0 +1,17 @@
+<header>
+  <h1>Create a New Track</h1>
+</header>
+
+<%= render 'shared/errors', object: @track %>
+
+<main>
+  <%= render 'form', album: @album, track: @track %>
+</main>
+
+<footer>
+  <ul>
+    <li><a href="<%= album_url(@album) %>">Return to Album</a></li>
+    <li><a href="<%= band_url(@album.band) %>">Return to Band</a></li>
+    <li><a href="<%= bands_url %>">Return to bands</a></li>
+  </ul>
+</footer>

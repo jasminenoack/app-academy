@@ -1,0 +1,34 @@
+<h1>Current Sessions</h1>
+<table>
+  <tr><th> ID </th> <th>logout</th><th>ip</th><th>Environment</th></tr>
+
+  <% @sessions.each do |session| %>
+
+  <tr>
+    <td>
+      <%= session.id %>
+    </td>
+
+    <td>
+      <form action="<%= delete_other_session_url(session.id) %>" method="post" >
+        <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>"
+        >
+      </form>
+    </td>
+    <td>
+      <%= session.ip_address %>
+    </td>
+    <td>
+      <%= session.environment %>
+    </td>
+  </tr>
+
+  <% end %>
+
+
+</table>

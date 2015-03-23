@@ -1,0 +1,14 @@
+<h1><%= @user.username %></h1>
+
+
+<ul>
+  <% @goals.each do |goal| %>
+    <% unless goal.private && current_user.id != goal.user_id %>
+    <li><a href="<%= goal_url(goal) %>"><%= goal.title %></a></li>
+    <% end %>
+  <% end %>
+</ul>
+<%= render "comments/show", comments: @comments %>
+<br>
+
+<%= render "comments/form" %>

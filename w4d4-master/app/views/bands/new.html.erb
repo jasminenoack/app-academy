@@ -1,0 +1,14 @@
+<header>
+  <h1>Add a Band</h1>
+</header>
+
+<%= render 'shared/errors', object: @band %>
+
+<main>
+  <%= render 'form', band: @band %>
+</main>
+<footer>
+  <ul>
+    <li><a href="<%= bands_url %>">Return to bands</a></li>
+  </ul>
+</footer>

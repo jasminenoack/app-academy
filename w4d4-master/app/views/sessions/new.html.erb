@@ -1,0 +1,34 @@
+<header>
+  <h1> Sign In </h1>
+</header>
+
+
+<%= flash[:error] %>
+
+<main>
+  <%= open_form(session_url) %>
+    <%= auth_token %>
+
+    <p>
+      <label for="email">Email: </label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        value="<%= params[:email] %>"
+      >
+    </p>
+
+    <p>
+      <label for="password">Password: </label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+      >
+    </p>
+
+    <%= submit_button %>
+
+  </form>
+</main>

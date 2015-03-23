@@ -1,0 +1,22 @@
+<h1> <%= @post.title %> </h1>
+
+<%= @post.subs.map { |sub| sub.title.titleize }.join(", ") %>
+<br>
+<%= @post.url %>
+<br>
+<%= @post.content %>
+
+<br>
+Post Author: <%= @post.author_name %>
+<br>
+<h3>Comments</h3>
+<%= render 'comments/view_comments', comments: @comments, parent_id: nil %>
+<a href="<%= new_post_comment_url(@post) %>">Create Comment</a>
+<br>
+<%= render "edit_post", post: @post %>
+
+<br>
+<% @post.subs.each do |sub| %>
+  <a href="<%=sub_url(sub)%>">Back to <%= sub.title %> </a>
+  <br>
+<% end %>

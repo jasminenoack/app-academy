@@ -1,0 +1,19 @@
+<h1><%= @sub.title.titleize %></h1>
+
+<aside>
+  <pre><em><%= @sub.description || "no description yet" %></em></pre>
+</aside>
+
+<main>
+  <% @posts.each do |post| %>
+    <a href="<%= post_url(post) %>" ><%= post.title %></a>
+    <em>(<%= post.author_name  %>)</em>
+    <blockquote>
+      <%= post.content %>
+    </blockquote>
+  <% end %>
+</main>
+
+<a href="<%= new_sub_post_url(@sub) %>">New post</a>
+<br>
+<%= render "edit_sub", sub: @sub %>

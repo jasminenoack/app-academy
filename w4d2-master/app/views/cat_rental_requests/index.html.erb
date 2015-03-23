@@ -1,0 +1,42 @@
+<h3>Cat Rental Requests for <%= @cat.name %></h3>
+  <table>
+    <tr>
+      <th>Start</th>
+      <th>End</th><th>Requester</th> <th> </th>
+      <th> </th>
+    </tr>
+
+  <% @requests.each do |request| %>
+    <tr>
+      <td><%= request.start_date %></td>
+      <td><%= request.end_date %></td>
+      <td><%= request.requester.user_name %></td>
+
+      <td>
+        <% if request.pending? %>
+        <form action="<%= approve_cat_rental_request_url(request) %>" method="post">
+          <button>Approve</button>
+
+          <input type="hidden" name="authenticity_token"
+                  value="<%= form_authenticity_token %>" >
+        </form>
+      </td>
+
+      <td><form action="<%=deny_cat_rental_request_url(request)%>" method="post">
+
+
+          <button>Deny</button>
+
+          <input type="hidden" name="authenticity_token"
+                  value="<%= form_authenticity_token %>" >
+        </form>
+        <% else %>
+      </td>
+      <td>
+        <%= request.status %>
+        <% end %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>

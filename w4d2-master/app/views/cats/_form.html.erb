@@ -1,0 +1,58 @@
+<%= cat.errors.full_messages %>
+<% path = (cat.persisted? ? cat_url(cat) : cats_url) %>
+<% method = (cat.persisted? ? "patch" : "post") %>
+
+<form action="<%= path %>" method="post">
+  <input type="hidden" name="authenticity_token"
+          value="<%= form_authenticity_token %>" >
+          
+  <input type="hidden" name="_method" value="<%= method %>">
+  <label for="cat_name">name</label>
+
+    <input type="text"
+            value="<%= cat.name %>"
+              name="cat[name]"
+                id="cat_name">
+    <br>
+
+    <input type="radio"
+           name="cat[sex]"
+           id="cat_sex_female"
+           value="F"
+           <%= "checked" if cat.sex == "F" %>>
+    <label for="cat_sex_female">Female</label>
+    <br>
+
+    <input type="radio"
+           name="cat[sex]"
+           id="cat_sex_male"
+           value="M"
+           <%= "checked" if cat.sex == "M" %>>
+    <label for="cat_sex_male">Male</label>
+    <br>
+
+    <label for="cat_color">Coat color</label>
+    <select name="cat[color]" id="cat_color">
+      <option value="<%=cat.color%>"><%=@cat.color%></option>
+      <option value="brown">Brown</option>
+      <option value="black">Black</option>
+      <option value="orange">Orange</option>
+      <option value="white">White</option>
+    </select>
+    <br>
+
+    <label for="cat_birth_date">Birth Date</label>
+    <input type="date"
+           name="cat[birth_date]"
+           value="<%=cat.birth_date%>"
+           id="cat_birth_date">
+    <br>
+
+    <label for="cat_description">Description</label>
+    <textarea name="cat[description]"
+    id="cat_description"><%= cat.description %></textarea>
+      <br>
+
+      <input type="submit" value="Edit cat">
+
+</form>

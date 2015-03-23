@@ -1,0 +1,21 @@
+<section>
+  <table>
+    <% notes.to_a.each do |note| %>
+
+      <tr>
+        <td><%= note.user.email %></td>
+        <td><%= note.body %></td>
+        <% if note.user == current_user %>
+          <td><%= delete_button(note_url(note)) %></td>
+        <% end %>
+      </tr>
+
+    <% end %>
+  </table>
+
+  <%= open_form(track_notes_url(track)) %>
+    <%= auth_token %>
+    <textarea name="note[body]"><%= @note.body %></textarea>
+    <%= submit_button %>
+  </form>
+</section>

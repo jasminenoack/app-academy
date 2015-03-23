@@ -1,0 +1,14 @@
+<% action_url = @user ?
+  user_comments_url(params[:id]) : goal_comments_url(params[:id]) %>
+
+<%= flash[:error] %>
+<br>
+
+<% if logged_in? %>
+  <form action="<%= action_url %>" method="post">
+    <%= auth_token %>
+    <label for="comment">Add a Comment</label>
+    <textarea id="content" name="comment[content]" rows="8" cols="40"></textarea>
+    <button>Submit Comment</button>
+  </form>
+<% end %>

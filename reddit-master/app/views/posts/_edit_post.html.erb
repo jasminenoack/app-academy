@@ -1,0 +1,4 @@
+<% if current_user_id == post.author_id %>
+
+<a href="<%= edit_post_url(post) %>">Edit this post</a>
+<% end %>

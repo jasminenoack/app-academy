@@ -1,0 +1,12 @@
+<h1><%= @goal.title %></h1>
+<p><%= @goal.description %></p>
+
+<% if logged_in? && current_user.id == @goal.user_id %>
+  <a href="<%= edit_goal_url(@goal) %>">Edit Goal</a>
+<% end %>
+<br>
+
+<%= render "comments/show", comments: @comments %>
+<br>
+
+<%= render "comments/form" %>

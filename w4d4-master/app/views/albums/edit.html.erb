@@ -1,0 +1,17 @@
+<header>
+  <h1>Edit Album</h1>
+</header>
+
+<%= render 'shared/errors', object: @album %>
+
+<main>
+  <%= render 'form', album: @album, band: @band %>
+</main>
+
+<footer>
+  <ul>
+    <li><a href="<%= album_url(@album) %>">Return to album</a></li>
+    <li><a href="<%= band_url(@band) %>">Return to Band</a></li>
+    <li><a href="<%= bands_url %>">Return to bands</a></li>
+  </ul>
+</footer>

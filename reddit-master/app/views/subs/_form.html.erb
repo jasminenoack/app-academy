@@ -1,0 +1,21 @@
+<% if sub.persisted? %>
+  <form action="<%= sub_url(sub) %>" method="post">
+  <%= hidden_patch %>
+<% else %>
+  <form action="<%= subs_url %>" method="post">
+<% end %>
+
+    <%= auth_token %>
+  <label>
+    Title:
+    <input type="text" name="sub[title]" value="<%= sub.title %>">
+  </label>
+  <br>
+
+  <label>Description:
+    <textarea name="sub[description]" ><%= sub.description %></textarea>
+  </label>
+  <br>
+
+  <button>Submit</button>
+</form>

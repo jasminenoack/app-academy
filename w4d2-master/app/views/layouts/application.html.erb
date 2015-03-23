@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cats</title>
+</head>
+<body>
+<style>
+body {
+  background-color: linen;
+}
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+ <% if logged_in? %>
+
+<h3><%= current_user.user_name %></h3>
+
+  <form action="<%= session_url(current_session) %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <button>Log out</button>
+    <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>" >
+  </form>
+  <br>
+  <a href="<%= sessions_url %>">All Open Sessions</a>
+
+    <% else %>
+    <a href="<%= new_session_url %>"> Sign In </a>
+    <% end %>
+  <!-- <body background="http://www.mywebroom-blog.com/wp-content/uploads/2014/11/tumblr_m8v643heTV1r6l6x1o1_500.jpg" > -->
+<%= yield %>
+
+</body>
+</html>

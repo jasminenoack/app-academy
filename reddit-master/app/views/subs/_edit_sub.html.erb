@@ -1,0 +1,8 @@
+<% if current_user_id == sub.moderator_id %>
+
+You are the moderator:
+<a href="<%= edit_sub_url(sub) %>">Edit this sub</a>
+
+<% else %>
+  <h4>moderated by <%= @sub.moderator_name.downcase %>  </h4>
+<% end %>

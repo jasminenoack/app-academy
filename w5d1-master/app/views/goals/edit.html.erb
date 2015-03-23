@@ -1,0 +1,8 @@
+<%= @goal.errors.full_messages %>
+<h1> Edit Goal </h1>
+<%= render 'form', goal: @goal %>
+<form action="<%= goal_url(@goal)%>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete Goal</button>
+</form>

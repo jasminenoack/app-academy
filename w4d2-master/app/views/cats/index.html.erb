@@ -1,0 +1,27 @@
+<h1> CATS! </h1>
+
+<table>
+  <tr>
+     <th> Name:</th>
+     <th>Color</th>
+     <th>Sex</th>
+     <th>Age</th>
+  </tr>
+
+  <% @cats.each do |cat| %>
+
+  <tr>
+    <td><a href="<%= cat_url(cat) %>"><%= cat.name %></a></td>
+
+    <td> <%= cat.color %> </td>
+
+    <td> <%= cat.sex %> </td>
+
+    <td> <%= cat.age %> </td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+<a href="<%=new_cat_url %>">Create a Cat!</a>

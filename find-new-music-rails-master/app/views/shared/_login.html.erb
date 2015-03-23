@@ -1,0 +1,50 @@
+<% url = user ? users_url : session_url %>
+<% input_names = user ? signup_names : login_names %>
+<% input_values = user ? signup_values : login_values %>
+
+<%= form_open(url) %>
+  <%= auth_token %>
+
+  <label for="username">Username: </label>
+  <input
+    type="text"
+    name="<%= input_names[0] %>"
+    value="<%= input_values[0] %>"
+    id="username"
+  >
+  <br>
+
+<% if user %>
+  <label for="email">Email: </label>
+  <input
+    type="text"
+    name="<%= input_names[1] %>"
+    value="<%= input_values[1] %>"
+    id="email"
+  >
+  <br>
+<% end %>
+
+  <label for="password">Password: </label>
+  <input
+    type="password"
+    name="<%= input_names[2] %>"
+    value="<%= input_values[2] %>"
+    id="password"
+  >
+  <br>
+
+<% if user %>
+  <label for="confirm_password">Confirm Password: </label>
+  <input
+    type="password"
+    name="<%= input_names[3] %>"
+    value="<%= input_values[3] %>"
+    id="confirm_password"
+  >
+  <br>
+<% end %>
+
+  <%= button("Sign In") %>
+
+</form>

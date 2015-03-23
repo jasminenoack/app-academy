@@ -1,0 +1,42 @@
+<header>
+  <h1>Create an Account</h1>
+</header>
+
+<%= render 'shared/errors', object: @user %>
+
+<main>
+  <%= open_form(users_url) %>
+    <%= auth_token %>
+
+    <p>
+      <label for="email">Email: </label>
+      <input
+        type="text"
+        name="user[email]"
+        id="email"
+        value="<%= @user.email %>"
+      >
+    </p>
+
+    <p>
+      <label for="password">Password: </label>
+      <input
+        type="password"
+        name="user[password]"
+        id="password"
+      >
+    </p>
+
+    <p>
+      <label for="confirm_password">Confirm Password: </label>
+      <input
+        type="password"
+        name="user[confirm_password]"
+        id="confirm_password"
+      >
+    </p>
+
+    <%= submit_button %>
+
+  </form>
+</main>

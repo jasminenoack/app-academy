@@ -1,0 +1,18 @@
+<h4>Add a comment to <%= post.title %> </h4>
+  <form
+    action="<%= comments_url %>"
+    method="post"
+  >
+  <%= auth_token %>
+
+  <input type="hidden" name="comment[post_id]" value="<%= post.id %>">
+  <% if parent %>
+  <input type="hidden" name="comment[parent_id]" value="<%= parent.id %>" >
+  <% end %>
+
+    <textarea name="comment[content]"><%= comment.content %></textarea>
+
+  <br>
+  <button>submit</button>
+
+</form>

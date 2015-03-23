@@ -1,0 +1,15 @@
+<h1><%= @comment.post_title %></h1>
+<h2><%= @comment.parent_content if @comment.parent %></h2>
+<h3><%= @comment.content %></h3>
+<%= @comment.author_name %>
+
+<%= render 'comment_form', parent: @comment, comment: Comment.new, post: @comment.post %>
+
+<%= render 'view_comments', comments: @comments, parent_id: @comment.id %>
+
+
+<% if @comment.parent %>
+  <a href="<%= comment_url(@comment.parent) %>">back</a>
+<% end %>
+<br>
+<a href="<%= post_url(@comment.post) %>">Return to post</a>

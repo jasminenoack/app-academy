@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewMusic</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <% if logged_in? %>
+      Hello <%= current_user.username %>
+      <br>
+      <%= render 'shared/destroy_form', content: "Log Out", url: session_url %>
+    <% end %>
+<%= flash[:error] %>
+<%= yield %>
+
+
+<footer> <a href="<%= bands_url %>">All Bands</a>
+
+</body>
+</html>

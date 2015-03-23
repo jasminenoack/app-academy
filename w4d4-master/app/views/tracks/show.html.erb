@@ -1,0 +1,23 @@
+<header>
+  <h1><%= @track.name %></h1>
+  <ul>
+    <li>bonus track: <%= @track.bonus %></li>
+  <ul>
+</header>
+<h3>by <a href="<%= band_url(@track.band) %>"><%= @track.band.name %></a></h3>
+<h4>Album: <a href="<%= album_url(@track.album) %>"><%= @track.album.name %></a></h4>
+
+<main>
+  <pre><%= ugly_lyrics(@track.lyrics) %></pre>
+</main>
+
+<%= render 'notes/feed', notes: @notes, note: @note, track: @track %>
+
+
+<footer>
+  <ul>
+    <li><a href="<%= edit_track_url(@track) %>">Edit</a></li>
+    <li><%= delete_button(track_url(@track)) %></li>
+    <li><a href="<%= bands_url %>">Return to bands</a></li>
+  </ul>
+</footer>

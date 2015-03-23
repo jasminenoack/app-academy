@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music</title>
+  <!-- <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%#= csrf_meta_tags %> -->
+</head>
+<body>
+<header>
+  <% if logged_in? %>
+    <%= current_user.email %>
+    <br>
+
+    <%= open_form(session_url) %>
+      <%= auth_token %>
+      <%= form_delete %>
+      <button>Log Out</button>
+    </form>
+  <% else %>
+    <ul>
+      <li><a href="<%= new_session_url %>">Sign In</a></li>
+      <li><a href="<%= new_user_url %>">Sign Up</a></li>
+    </ul>
+  <% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<% if user %>
+  <form action="<%= users_url %>" method="post">
+  <%= render 'shared/errors', object: @user %>
+  <% button = "Sign Up!" %>
+
+<% else %>
+  <%= flash[:error] %>
+  <form action="<%= session_url %>" method="post">
+  <% button = "Sign In!" %>
+
+<% end %>
+
+  <%= auth_token %>
+
+  <label for="username">Username: </label>
+  <input
+    type="text"
+    id="username"
+    <%= user ?
+      'name="user[username]"'.html_safe :
+      'name="username"'.html_safe
+    %>
+    value="<%= params[:username] || (@user && @user.username) %>"
+  >
+  <br>
+
+  <label for="password">Password</label>
+  <input
+    type="password"
+    id="password"
+    <%= user ?
+      'name="user[password]"'.html_safe :
+      'name="password"'.html_safe
+    %>
+  >
+  <br>
+
+  <button><%= button %></button>
+
+</form>

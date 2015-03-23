@@ -1,0 +1,15 @@
+<% if band.persisted? %>
+  <%= open_form(band_url(band)) %>
+  <%= form_patch %>
+<% else %>
+  <%= open_form(bands_url) %>
+<% end %>
+
+  <%= auth_token %>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="band[name]" value="<%= band.name %>">
+
+  <%= submit_button %>
+
+</form>

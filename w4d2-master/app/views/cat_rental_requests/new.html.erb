@@ -1,0 +1,33 @@
+<marquee><h1>REQUEST TO RENT A CAT!!! </h1></marquee>
+
+  <%= @cat_rental_request.errors.full_messages %>
+
+  <form action="<%=cat_rental_requests_url%>" method="post">
+    <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>" >
+
+    <label for="request_for_cat_id"> Select a cat!</label>
+    <select name="cat_rental_request[cat_id]" id="request_for_cat_id">
+      <% Cat.all.each do |cat| %>
+        <option value="<%=cat.id%>"><%=cat.name%></option>
+      <% end %>
+    </select>
+    <br>
+
+    <label for="rental_start_date">Start Date</label>
+    <input type="date"
+           name="cat_rental_request[start_date]"
+           value="<%=@cat_rental_request.start_date%>"
+           id="rental_start_date">
+    <br>
+
+    <label for="rental_end_date">End Date</label>
+    <input type="date"
+           name="cat_rental_request[end_date]"
+           value="<%=@cat_rental_request.end_date%>"
+           id="rental_end_date">
+    <br>
+
+    <input type="submit" value="request">
+
+  </form>

@@ -1,0 +1,23 @@
+<marquee><h1>Sign In!</h1></marquee>
+
+  <%= flash[:notice] %>
+
+  <form action="<%= sessions_url %>" method="POST">
+
+    <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>" >
+
+    <label for="Username">Username</label>
+    <input type="text"
+          id="Username"
+          name="user_name"
+          value="<%= params[:user_name] %>">
+    <br>
+
+    <label for="Password">Password</label>
+    <input type="password"
+          id="Password"
+          name="password">
+
+    <button>submit</button>
+  </form>

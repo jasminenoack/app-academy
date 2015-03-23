@@ -1,0 +1,9 @@
+<h1>Recommend by: <%= @user.username.titleize %></h1>
+
+<main>
+  <ul>
+    <% @bands.each do |band| %>
+      <li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
+    <% end %>
+  </ul>
+</main>

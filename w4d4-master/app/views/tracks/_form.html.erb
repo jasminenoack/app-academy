@@ -1,0 +1,51 @@
+<% if track.persisted? %>
+  <%= open_form(track_url(track)) %>
+  <%= form_patch %>
+<% else %>
+  <%= open_form(tracks_url) %>
+<% end %>
+
+  <%= auth_token %>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="track[name]" value="<%= track.name %>">
+  <br>
+
+  <label for="album">album</label>
+  <select id="album" name="track[album_id]">
+    <% Album.all.each do |album_choice| %>
+      <option
+        value="<%= album_choice.id %>"
+        <%= "selected" if album_choice.id == album.id %>
+      >
+      <%= album_choice.name %></option>
+    <% end %>
+  </select>
+  <br>
+
+  <input
+    type="radio"
+    id="regular_track"
+    value="false"
+    name="track[bonus]"
+    <%= "checked" if @track.bonus == false %>
+  >
+  <label for="regular_track">Regular Track</label>
+  <input
+    type="radio"
+    id="bonus_track"
+    value="true"
+    name="track[bonus]"
+    <%= "checked" if @track.bonus == true %>
+  >
+  <label for="bonus_track">Bonus Track</label>
+</br>
+
+<label for="lyrics">Lyrics</label>
+<br>
+<textarea id="lyrics" name="track[lyrics]"><%= @track.lyrics %></textarea>
+
+<br>
+  <%= submit_button %>
+
+</form>

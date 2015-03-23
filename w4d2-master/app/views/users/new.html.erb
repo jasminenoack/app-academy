@@ -1,0 +1,23 @@
+<marquee><h1>Sign Up!</h1></marquee>
+
+  <%= @user.errors.full_messages %>
+
+  <form action="<%= user_url %>" method="POST">
+
+    <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>" >
+
+    <label for="Username">Username</label>
+    <input type="text"
+          id="Username"
+          name="user[user_name]"
+          value="<%= @user.user_name %>">
+    <br>
+
+    <label for="Password">Password</label>
+    <input type="password"
+          id="Password"
+          name="user[password]">
+
+    <button>submit</button>
+  </form>

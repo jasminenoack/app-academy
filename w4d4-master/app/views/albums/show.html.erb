@@ -1,0 +1,31 @@
+<header>
+  <h1><%= @album.name %></h1>
+  <ul>
+    <li>year: <%= @album.year %></li>
+    <li>type: <%= @album.kind %></li>
+  <ul>
+</header>
+<h4>by <a href="<%= band_url(@band) %>"><%= @band.name %></a>
+
+
+<main>
+
+  <section>
+    <h3>tracks</h3>
+    <ul>
+      <% @tracks.each do |track| %>
+        <li><a href="<%= track_url(track) %>"><%= track.name %></a></li>
+      <% end %>
+    </ul>
+    <a href="<%= new_album_track_url(@album) %>">Create a new track</a>
+  </section>
+
+</main>
+
+<footer>
+  <ul>
+    <li><a href="<%= edit_album_url(@album) %>">Edit</a></li>
+    <li><%= delete_button(album_url(@album)) %></li>
+    <li><a href="<%= bands_url %>">Return to bands</a></li>
+  </ul>
+</footer>

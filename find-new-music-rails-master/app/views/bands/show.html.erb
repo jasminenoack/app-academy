@@ -1,0 +1,33 @@
+<header>
+  <h1><%= @band.name %></h1>
+</header>
+
+
+
+
+<aside>
+  <h4>Other Bands Favorited by: <%= @user.username.titleize %> </h4>
+  <ul>
+  <% other_recommendations(@user, @band).each do |band| %>
+    <li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
+  <% end %>
+  <li><a href="<%= user_url(@user) %>">See All</a>
+  </ul>
+</aside>
+
+
+<footer>
+  <ul>
+    <li><a href="<%= bands_url %>">Return to bands</a></li>
+
+    <% if current_id == @band.owner_id %>
+      <li><a href="<%= edit_band_url(@band) %>">Edit</a></li>
+      <li>
+        <%= render 'shared/destroy_form',
+          url: band_url(@band),
+          content: "Delete Band"
+        %>
+      </li>
+    <% end %>
+  </ul>
+</footer>
