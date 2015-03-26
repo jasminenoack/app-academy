@@ -1,0 +1,15 @@
+<form>
+Create a new card:
+<br>
+<label for="title">Title: </label>
+<br>
+<input type="text" name="title" value="<%= card.escape("title") %>">
+<br>
+<br>
+<label for="description">Description: </label>
+<br>
+<input type="text" name="description" value="<%= card.escape("description") %>">
+<br>
+<br>
+<button>Submit</button>
+<br>

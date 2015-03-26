@@ -1,0 +1,40 @@
+
+<h6><%= card.escape("title") %>(<%= card.items().length %>)
+  <button class="edit-card"><i class="fa fa-pencil fa-fw"></i>&nbsp;</button>
+</h6>
+<!-- <p><%= card.escape('description') %></p> -->
+
+
+
+<div id="cardDetail<%= card.id %>" class="modalDialog">
+  <div>
+		<button id="close" >X</button>
+    <section class="detail">
+    <!-- <h2><%= card.escape("title") %> <button class="delete-card">Delete</button></h2>
+    <p><%= card.escape('description') %></p>
+    </section> -->
+
+    <form class="card">
+    Create a new card:
+    <br>
+    <label for="title">Title: </label>
+    <br>
+    <input type="text" name="title" value="<%= card.escape("title") %>">
+    <br>
+    <br>
+    <label for="description">Description: </label>
+    <br>
+    <input type="text" name="description" value="<%= card.escape("description") %>">
+    <br>
+    <br>
+    <button>Submit</button>
+    <br>
+    </form>
+
+    <ul class="items">
+
+   </ul>
+   <section class="item-form"></section>
+
+	</div>
+</div>

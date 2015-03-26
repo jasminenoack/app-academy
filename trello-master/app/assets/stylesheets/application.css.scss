@@ -1,0 +1,268 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.all
+ *= require_tree .
+ */
+
+// @import "bootstrap";
+@import "font-awesome";
+// reset
+ul, li, h1, h2, h3, h4, h5, h6, p, div, section, article, a, body, html, button { //, input, textarea {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  text-align: inherit;
+  text-decoration: none;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 16px;
+}
+
+// style navbar
+
+nav {
+  background: #0b6294;
+  color: #e2ecf0;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 25px;
+
+}
+
+nav .left {
+  float: left;
+
+}
+
+nav .left li{
+  float: left;
+}
+
+nav .right {
+  float: right;
+}
+
+nav .right li{
+  float: left;
+
+}
+
+nav .center {
+  display: inline-block;
+  position: absolute;
+  color: #84b0c9;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 5px;
+  margin: 5px;
+}
+
+nav a {
+  //
+  border-radius: 5px;
+  display: block;
+  padding: 5px;
+  background: #4a8aaf;
+  margin: 5px;
+}
+
+nav a:hover {
+  background: #86B9D7;
+
+}
+
+// style boards index
+
+.my-boards {
+  margin: 10px;
+  font-weight: 700;
+}
+
+.board-index a {
+  height: 80px;
+  width: 230px;
+  background: #026aa7;
+  display: block;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  float: left;
+  color: white;
+  font-weight: 700;
+}
+
+.board-index a:hover {
+  background: #015F96;
+}
+
+.board-index .new {
+  background: #D3D3D3;
+  color:#939393;
+  // font-weight: 400;
+}
+
+.board-index .new:hover {
+  background: #bdbdbd;
+}
+
+.board-index {
+  margin: 0 20px
+}
+
+// modal
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 200ms ease-in;
+	-moz-transition: opacity 200ms ease-in;
+	transition: opacity 200ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog.active {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+  padding: 20px;
+	width: 60%;
+  height: 60%;
+  overflow-y: auto;
+	position: relative;
+	margin: 10% auto;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+
+
+
+// style page
+
+.boards-frame {
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  overflow-x: scroll;
+  display: block;
+  margin: 20px auto 0 auto;
+  color: #4d4d4d;
+  background: rgb(14, 116, 175)
+}
+
+.lists{
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+  padding: 10px;
+}
+
+.list{
+  flex: 0 0 260px;
+  background: #e2e4e6;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  position: relative;
+}
+
+.edit-card {
+  color: #8c8c8c;
+  // display: block;
+  position: relative;
+  float:right;
+  display: none;
+}
+
+.cards li:hover .edit-card {
+  display: block;
+}
+
+.edit-card:hover {
+  color: #4d4d4d;
+}
+
+.list button {
+}
+
+input {
+  color: #4d4d4d;
+}
+
+.cards > li {
+  background: #ffffff;
+  border-radius: 5px;
+  min-height: 25px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.cards li:hover {
+  background: #f0f1f2;
+}
+
+h1 {
+  font-size: 24px
+}
+
+//  style card detail
+
+.items {
+  // list-style: disc;
+  list-style-position: inside;
+}
+
+.item {
+  font-size: 20px
+}
+
+
+// general styling
+.clickable {
+  position: relative;
+}
+
+.clickable:hover {
+  font-weight: 700;
+}

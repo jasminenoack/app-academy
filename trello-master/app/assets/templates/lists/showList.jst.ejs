@@ -1,0 +1,16 @@
+<h4  class="clickable"><%= list.escape("title") %></h4>
+<button class="delete">Delete</button>
+<br>
+<ul class="cards" id="sortable"></ul>
+
+<script>
+
+$(function(board, lists) {
+  $(".cards").sortable({
+    connectWith: '.cards',
+    receive: function(event, ui) {
+      ui.sender.trigger("place", ui)
+    },
+  });
+});
+</script>

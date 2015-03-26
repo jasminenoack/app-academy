@@ -1,0 +1,21 @@
+<h1><%= board.escape("title") %></h1>
+<a href="#">Back</a>
+<button class="delete">Delete</button>
+<section class="boards-frame">
+<ul class="lists group"></ul>
+</section>
+
+
+
+
+
+<script>
+
+$(function(board, lists) {
+  $(".lists").sortable({
+    deactivate: function(event, ui) {
+      ui.sender.trigger('drop', ui.sender.children())
+    }
+  });
+});
+</script>

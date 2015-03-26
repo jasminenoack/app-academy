@@ -1,0 +1,22 @@
+<nav class="navbar group">
+  <ul class="left group">
+    <li><a href="#">Boards</a></li>
+    <!-- search -->
+  </ul>
+
+  <h1 class="center">TrelloClone</h1>
+
+  <ul class="right group">
+    <li><a href="#/boards/new">+</a></li>
+    <li><a href="#">
+      <%= current_user && current_user.email %></a></li>
+    <!-- alerts -->
+  </ul>
+</nav>
+
+<% if flash[:errors] %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+<%= flash[:errors].join("<br>").html_safe %>
+</div>
+<% end %>

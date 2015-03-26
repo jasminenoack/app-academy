@@ -1,0 +1,10 @@
+<% items.each(function (item) { %>
+  <li class="item">
+    <input type="checkbox" class="item-done" <% if (item.get("done")) {%>
+      checked
+      <% } %>
+      data-item-id=<%= item.id %>
+    >
+    <%= item.escape("title") %>
+  </li>
+<% }) %>
