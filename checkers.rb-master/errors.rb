@@ -1,0 +1,2 @@
+class CheckersError < StandardError
+end
